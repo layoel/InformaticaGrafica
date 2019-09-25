@@ -1,6 +1,6 @@
 # InformaticaGrafica
 
-## Práctica 1
+## Práctica 0
 
 Para compilar el proyecto hacer make.
 
