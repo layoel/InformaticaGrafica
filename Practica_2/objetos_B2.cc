@@ -255,7 +255,7 @@ _rotacion::_rotacion()
 }
 
 
-void _rotacion::parametros(vector<_vertex3f> perfil, int num) {
+void _rotacion::parametros(vector<_vertex3f> perfil, int num, char eje) {
     int i,j;
     _vertex3f vertice_aux;
     _vertex3i cara_aux;
@@ -274,14 +274,33 @@ void _rotacion::parametros(vector<_vertex3f> perfil, int num) {
              vertice_aux = vertices[i];
       
           }else{
-      
-                vertice_aux.x = perfil[i].x * cos(2.0 * M_PI * j / (1.0 * num)) +
-                                perfil[i].z * sin(2.0 * M_PI * j / (1.0 * num));
+                if (eje == 'y'){ //rotacion en eje y
+                  vertice_aux.x = perfil[i].x * cos(2.0 * M_PI * j / (1.0 * num)) +
+                                  perfil[i].z * sin(2.0 * M_PI * j / (1.0 * num));
 
-                vertice_aux.z = - perfil[i].x * sin(2.0 * M_PI * j / (1.0 * num)) +
-                                  perfil[i].z * cos(2.0 * M_PI * j / (1.0 * num));
+                  vertice_aux.z = - perfil[i].x * sin(2.0 * M_PI * j / (1.0 * num)) +
+                                    perfil[i].z * cos(2.0 * M_PI * j / (1.0 * num));
 
-                vertice_aux.y = perfil[i].y;
+                  vertice_aux.y = perfil[i].y;
+                }
+                if (eje == 'x'){ //rotacion en eje x
+                  vertice_aux.y = perfil[i].y * cos(2.0 * M_PI * j / (1.0 * num)) +
+                                  perfil[i].z * sin(2.0 * M_PI * j / (1.0 * num));
+
+                  vertice_aux.z = - perfil[i].y * sin(2.0 * M_PI * j / (1.0 * num)) +
+                                    perfil[i].z * cos(2.0 * M_PI * j / (1.0 * num));
+
+                  vertice_aux.x = perfil[i].x;
+                }
+                if(eje == 'z'){ //rotación en eje z
+                  vertice_aux.x = perfil[i].x * cos(2.0 * M_PI * j / (1.0 * num)) +
+                                  perfil[i].y * sin(2.0 * M_PI * j / (1.0 * num));
+
+                  vertice_aux.y = - perfil[i].x * sin(2.0 * M_PI * j / (1.0 * num)) +
+                                    perfil[i].y * cos(2.0 * M_PI * j / (1.0 * num));
+
+                  vertice_aux.z = perfil[i].z;
+                }
       
               }
             
@@ -309,39 +328,116 @@ void _rotacion::parametros(vector<_vertex3f> perfil, int num) {
       }
     }
 
-         
+    ////////////SI ROTO EN EL EJE Y
+    if (eje == 'y'){
+
+       // tapa inferior
+      if (fabs(perfil[0].x)>0.0){
+
+        vertice_aux.x = 0;
+        vertice_aux.y = perfil[0].y;
+        vertice_aux.z = 0;
+        vertices.push_back(vertice_aux);
+
+        for (j=0; j<num; j++){
+          cara_aux._0 = j * num_aux;
+          cara_aux._1 = vertices.size()-1;
+          cara_aux._2 = ((j + 1) % num) * num_aux;
+          caras.push_back(cara_aux);
+        }
+
+      }
+       
+       // tapa superior
+      if (fabs(perfil[num_aux-1].x)>0.0){
+        vertice_aux.x = 0;
+        vertice_aux.y = perfil[num_aux-1].y;
+        vertice_aux.z = 0;
+        vertices.push_back(vertice_aux);
+      
+        for (j=0; j<num; j++){
+          cara_aux._0 = (num_aux - 1) + j * num_aux;
+          cara_aux._1 = (vertices.size() - 1);
+          cara_aux._2 = (num_aux - 1) + ((j + 1) % num) * num_aux;
+          caras.push_back(cara_aux);
+        }
+
+      }
+    }// fin if eje y
+
+
+    //////////////SI ROTO EN EJE X
+    if (eje == 'x'){
      // tapa inferior
-    if (fabs(perfil[0].x)>0.0){
-      vertice_aux.x = 0;
-      vertice_aux.y = perfil[0].y;
-      vertice_aux.z = 0;
-      vertices.push_back(vertice_aux);
+      if (fabs(perfil[0].x)>0.0){
 
-      for (j=0; j<num; j++){
-        cara_aux._0 = j * num_aux;
-        cara_aux._1 = vertices.size()-1;
-        cara_aux._2 = ((j + 1) % num) * num_aux;
-        caras.push_back(cara_aux);
+        vertice_aux.y = 0;
+        vertice_aux.x = perfil[0].x;
+        vertice_aux.z = 0;
+        vertices.push_back(vertice_aux);
+
+        for (j=0; j<num; j++){
+          cara_aux._0 = j * num_aux;
+          cara_aux._1 = vertices.size()-1;
+          cara_aux._2 = ((j + 1) % num) * num_aux;
+          caras.push_back(cara_aux);
+        }
+
+      }
+       
+       // tapa superior
+      if (fabs(perfil[num_aux-1].x)>0.0){
+        vertice_aux.y = 0;
+        vertice_aux.x = perfil[num_aux-1].x;
+        vertice_aux.z = 0;
+        vertices.push_back(vertice_aux);
+      
+        for (j=0; j<num; j++){
+          cara_aux._0 = (num_aux - 1) + j * num_aux;
+          cara_aux._1 = (vertices.size() - 1);
+          cara_aux._2 = (num_aux - 1) + ((j + 1) % num) * num_aux;
+          caras.push_back(cara_aux);
+        }
+
+      }
+  }
+
+  ///////// SI ROTO EN EJE Z
+  if (eje == 'z'){
+     // tapa inferior
+      if (fabs(perfil[0].x)>0.0){
+
+        vertice_aux.x = 0;
+        vertice_aux.z = perfil[0].z;
+        vertice_aux.y = 0;
+        vertices.push_back(vertice_aux);
+
+        for (j=0; j<num; j++){
+          cara_aux._0 = j * num_aux;
+          cara_aux._1 = vertices.size()-1;
+          cara_aux._2 = ((j + 1) % num) * num_aux;
+          caras.push_back(cara_aux);
+        }
+
+      }
+       
+       // tapa superior
+      if (fabs(perfil[num_aux-1].x)>0.0){
+        vertice_aux.x = 0;
+        vertice_aux.z = perfil[num_aux-1].z;
+        vertice_aux.y = 0;
+        vertices.push_back(vertice_aux);
+      
+        for (j=0; j<num; j++){
+          cara_aux._0 = (num_aux - 1) + j * num_aux;
+          cara_aux._1 = (vertices.size() - 1);
+          cara_aux._2 = (num_aux - 1) + ((j + 1) % num) * num_aux;
+          caras.push_back(cara_aux);
+        }
+
       }
 
-    }
-     
-     // tapa superior
-    if (fabs(perfil[num_aux-1].x)>0.0){
-      vertice_aux.x = 0;
-      vertice_aux.y = perfil[num_aux-1].y;
-      vertice_aux.z = 0;
-      vertices.push_back(vertice_aux);
-    
-      for (j=0; j<num; j++){
-        cara_aux._0 = (num_aux - 1) + j * num_aux;
-        cara_aux._1 = (vertices.size() - 1);
-        cara_aux._2 = (num_aux - 1) + ((j + 1) % num) * num_aux;
-        caras.push_back(cara_aux);
-      }
-
-    }
-
+  }
 }
 
 //************************************************************************

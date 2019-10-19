@@ -161,7 +161,7 @@ glutPostRedisplay();
 }
 
 
-//**********-o*****************************************************************
+//***************************************************************************
 // Funcion llamada cuando se aprieta una tecla normal
 //
 // el evento manda a la funcion:
@@ -254,21 +254,58 @@ int main(int argc, char *argv[] )
 {
  
 
-
-
-// perfil 
-
-vector<_vertex3f> perfil2; //perfil de un cilindro
+vector<_vertex3f> perfil2; 
 _vertex3f aux;
 
-/*
+///************************************///
+/// cilindro generado rotanto en Y     ///
+///************************************///
+
+//*/ DESCOMENTAR PARA PROBAR
 aux.x=1.0; aux.y=-1.0; aux.z=0.0;
 perfil2.push_back(aux);
 aux.x=1.0; aux.y=1.0; aux.z=0.0;
 perfil2.push_back(aux);
-*/
 
-aux.x= 0.6; aux.y=-3.0; aux.z=0.0;
+rotacion.parametros(perfil2,100, 'y');
+/*/
+
+
+///************************************///
+/// cilindro generado rotanto en X     ///
+///************************************///
+
+/*/ DESCOMENTAR PARA PROBAR
+aux.x=-1.0; aux.y=0.0; aux.z=1.0;
+perfil2.push_back(aux);
+aux.x=1.0; aux.y=0.0; aux.z=1.0;
+perfil2.push_back(aux);
+
+rotacion.parametros(perfil2,100, 'x');
+/*/
+
+
+
+///************************************///
+/// cilindro generado rotanto en Z     ///
+///************************************///
+
+/*/ DESCOMENTAR PARA PROBAR
+aux.x=1.0; aux.y=0.0; aux.z=-1.0;
+perfil2.push_back(aux);
+aux.x=1.0; aux.y=0.0; aux.z=1.0;
+perfil2.push_back(aux);
+
+rotacion.parametros(perfil2,100, 'z');
+//*/
+
+
+///************************************///
+/// JARRON generado rotanto en x       ///
+///************************************///
+
+/*/ DESCOMENTAR PARA PROBAR
+/*aux.x= 0.6; aux.y=-3.0; aux.z=0.0;
 perfil2.push_back(aux);
 aux.x= 0.8; aux.y=-2.7; aux.z=0.0;
 perfil2.push_back(aux);
@@ -289,8 +326,10 @@ perfil2.push_back(aux);
 aux.x=0.8; aux.y=2.6; aux.z=0.0;
 perfil2.push_back(aux);
 
+rotacion.parametros(perfil2,100, 'y');
+*/
 
-rotacion.parametros(perfil2,100);
+
 
 
 
