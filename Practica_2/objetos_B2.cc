@@ -25,7 +25,7 @@ _puntos3D::_puntos3D()
 
 void _puntos3D::draw_puntos(float r, float g, float b, int grosor){
 
-  int i;
+  unsigned int i;
   glPointSize(grosor);
   glColor3f(r,g,b);
   glBegin(GL_POINTS);
@@ -51,7 +51,7 @@ _triangulos3D::_triangulos3D()
 
 void _triangulos3D::draw_aristas(float r, float g, float b, int grosor)
 {
-  int i;
+  unsigned int i;
   glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
   glLineWidth(grosor);
   glColor3f(r,g,b);
@@ -69,7 +69,7 @@ void _triangulos3D::draw_aristas(float r, float g, float b, int grosor)
 //*************************************************************************
 
 void _triangulos3D::draw_solido(float r, float g, float b){
-  int i;
+  unsigned int i;
   glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
   glColor3f(r,g,b);
   glBegin(GL_TRIANGLES);
@@ -89,7 +89,7 @@ void _triangulos3D::draw_solido(float r, float g, float b){
 
 void _triangulos3D::draw_solido_ajedrez(float r1, float g1, float b1, float r2, float g2, float b2)
 {
-  int i;
+  unsigned int i;
   glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
   glColor3f(r1,g1,b1);
   glBegin(GL_TRIANGLES);
@@ -466,7 +466,7 @@ void _esfera::parametros(){
 
   num_aux=perfil.size();
   vertices.resize(num_aux*longitud);
-  for (j=0; j<num; j++){
+  for (j=0; j<longitud; j++){
 
     for (i=0; i<num_aux; i++){
 

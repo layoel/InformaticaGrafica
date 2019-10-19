@@ -33,8 +33,8 @@ _cubo cubo;
 _piramide piramide(0.85,1.3);
 _objeto_ply  ply; 
 _rotacion rotacion; 
-_cono cono(0.4,0.8,10);
-_esfera esfera(0.4,6,6);
+_cono cono(0.4,0.8,40);
+_esfera esfera(0.4,30,30);
 
 // _objeto_ply *ply1;
 
@@ -179,12 +179,12 @@ void normal_key(unsigned char Tecla1,int x,int y){
 		case '3':modo=SOLID;break;
 		case '4':modo=SOLID_CHESS;break;
 
-	    case 'P':t_objeto=PIRAMIDE;break;
-	    case 'C':t_objeto=CUBO;break;
-	    case 'O':t_objeto=OBJETO_PLY;break;	
-	    case 'R':t_objeto=ROTACION;break;
+	    case 'A':t_objeto=PIRAMIDE;break;
+	    case 'S':t_objeto=CUBO;break;
+	    case 'D':t_objeto=OBJETO_PLY;break;	
+	    case 'F':t_objeto=ROTACION;break;
 	    case 'G':t_objeto=CONO;break;
-		case 'E':t_objeto=ESFERA;break;
+		case 'H':t_objeto=ESFERA;break;
 	}
 	glutPostRedisplay();
 }
@@ -261,13 +261,36 @@ int main(int argc, char *argv[] )
 vector<_vertex3f> perfil2; //perfil de un cilindro
 _vertex3f aux;
 
+/*
 aux.x=1.0; aux.y=-1.0; aux.z=0.0;
 perfil2.push_back(aux);
 aux.x=1.0; aux.y=1.0; aux.z=0.0;
 perfil2.push_back(aux);
+*/
+
+aux.x= 0.6; aux.y=-3.0; aux.z=0.0;
+perfil2.push_back(aux);
+aux.x= 0.8; aux.y=-2.7; aux.z=0.0;
+perfil2.push_back(aux);
+aux.x= 1.2; aux.y=-2.4; aux.z=0.0;
+perfil2.push_back(aux);
+aux.x= 1.4; aux.y=-2.0; aux.z=0.0;
+perfil2.push_back(aux);
+aux.x=1.5; aux.y=-1.5; aux.z=0.0;
+perfil2.push_back(aux);
+aux.x=1.4; aux.y=-1.0; aux.z=0.0;
+perfil2.push_back(aux);
+aux.x=0.6; aux.y=1.0; aux.z=0.0;
+perfil2.push_back(aux);
+aux.x=0.4; aux.y=1.5; aux.z=0.0;
+perfil2.push_back(aux);
+aux.x=0.35; aux.y=2.0; aux.z=0.0;
+perfil2.push_back(aux);
+aux.x=0.8; aux.y=2.6; aux.z=0.0;
+perfil2.push_back(aux);
 
 
-rotacion.parametros(perfil2,15);
+rotacion.parametros(perfil2,100);
 
 
 
