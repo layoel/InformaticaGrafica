@@ -182,3 +182,37 @@ caras[3]._0=3;caras[3]._1=0;caras[3]._2=4;
 caras[4]._0=3;caras[4]._1=1;caras[4]._2=0;
 caras[5]._0=3;caras[5]._1=2;caras[5]._2=1;
 }
+
+
+//*************************************************************************
+// clase decaedro
+//*************************************************************************
+
+_decaedro::_decaedro(float tam, float al)
+{
+
+	vertices.resize(7);
+	vertices[0].x=-tam;vertices[0].y=0;vertices[0].z=0;//base pentagono
+	vertices[1].x=0;vertices[1].y=0;vertices[1].z=-tam;
+	vertices[2].x=tam;vertices[2].y=0;vertices[2].z=0;
+	vertices[3].x=tam/2;vertices[3].y=0;vertices[3].z=tam;
+	vertices[4].x=-tam/2;vertices[4].y=0;vertices[4].z=tam;
+	
+	vertices[5].x=0;vertices[5].y=tam;vertices[5].z=0; //arriba
+	
+	vertices[6].x=0;vertices[6].y=-tam;vertices[6].z=0; //abajo
+
+	caras.resize(10);
+	//arriba
+	caras[0]._0=4;caras[0]._1=3;caras[0]._2=5; //frente
+	caras[1]._0=0;caras[1]._1=4;caras[1]._2=5; //izda
+	caras[2]._0=3;caras[2]._1=2;caras[2]._2=5; //dcha
+	caras[3]._0=0;caras[3]._1=5;caras[3]._2=1; //tras izda
+	caras[4]._0=1;caras[4]._1=5;caras[4]._2=2; //tras dcha
+	//abajo
+	caras[5]._0=4;caras[5]._1=3;caras[5]._2=6; //frente
+	caras[6]._0=0;caras[6]._1=4;caras[6]._2=6; //izda
+	caras[7]._0=3;caras[7]._1=2;caras[7]._2=6; //dcha
+	caras[8]._0=0;caras[8]._1=6;caras[8]._2=1; //tras izda
+	caras[9]._0=1;caras[9]._1=6;caras[9]._2=2; //tras dcha
+}

@@ -32,6 +32,7 @@ int figura = 0;
 
 _piramide piramide(0.85,1.3);
 _cubo cubo(0.2);
+_decaedro decaedro (0.4,1.3);
 
 //**************************************************************************
 //
@@ -135,6 +136,22 @@ void draw_objects()
                 cubo.draw_solido_ajedrez(0.7,0.0,0.7, 0.0,0.1,0.9);
             break;
         }
+
+     if (figura == 3)
+        switch(modo){
+            case 0:
+                decaedro.draw_puntos(0.0,0.0,0.0,3);
+            break;
+            case 1:
+                decaedro.draw_aristas(1.0,0.5,0.0,3.0);
+            break;
+            case 2:
+                decaedro.draw_solido(1.0,0.5,0.0);
+            break;
+            case 3:
+                decaedro.draw_solido_ajedrez(0.7,0.0,0.7, 0.0,0.1,0.9);
+            break;
+        }
         
 }
 
@@ -205,6 +222,9 @@ void normal_keys(unsigned char Tecla1,int x,int y)
         case '2': 
             figura = 2; // cubo
         break;
+        case '3':
+            figura = 3; //decaedro
+        break;
     }
 
     glutPostRedisplay();
@@ -257,7 +277,8 @@ Observer_angle_y=0;
 
 // se indica cual sera el color para limpiar la ventana	(r,v,a,al)
 // blanco=(1,1,1,1) rojo=(1,0,0,1), ...
-glClearColor(1,1,1,1);
+glClearColor(1,1,1,1); 
+
 
 // se habilita el z-bufer
 glEnable(GL_DEPTH_TEST);
@@ -298,7 +319,7 @@ int main(int argc, char **argv)
 
     // llamada para crear la ventana, indicando el titulo (no se visualiza hasta que se llama
     // al bucle de eventos)
-    glutCreateWindow("Práctica 1 Elvira");
+    glutCreateWindow("Práctica 1 Elvira Castillo");
 
     // asignación de la funcion llamada "dibujar" al evento de dibujo
     glutDisplayFunc(draw_scene);
