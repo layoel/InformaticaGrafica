@@ -12,7 +12,7 @@
 using namespace std;
 
 // tipos
-typedef enum{CUBO, PIRAMIDE, OBJETO_PLY, ROTACION, CONO, ESFERA} _tipo_objeto;
+typedef enum{CUBO, PIRAMIDE, OBJETO_PLY,CILINDROX, CILINDROZ, ROTACION, CONO, ESFERA} _tipo_objeto;
 _tipo_objeto t_objeto=CUBO;
 _modo   modo=POINTS;
 
@@ -31,7 +31,9 @@ int Window_x=50,Window_y=50,Window_width=450,Window_high=450;
 // objetos
 _cubo cubo;
 _piramide piramide(0.85,1.3);
-_objeto_ply  ply; 
+_objeto_ply  ply;
+_objeto_ply  ply1;
+_objeto_ply  ply2;
 _rotacion rotacion; 
 _cono cono(0.4,0.8,40);
 _esfera esfera(0.4,30,30);
@@ -117,6 +119,8 @@ switch (t_objeto){
 	case CUBO: cubo.draw(modo,1.0,0.0,0.0,0.0,1.0,0.0,2);break;
 	case PIRAMIDE: piramide.draw(modo,1.0,0.0,0.0,0.0,1.0,0.0,2);break;
     case OBJETO_PLY: ply.draw(modo,1.0,0.6,0.0,0.0,1.0,0.3,2);break;
+    case CILINDROX: ply1.draw(modo,1.0,0.6,0.0,0.0,1.0,0.3,2);break;
+    case CILINDROZ: ply2.draw(modo,1.0,0.6,0.0,0.0,1.0,0.3,2);break;
     case ROTACION: rotacion.draw(modo,1.0,0.0,0.0,0.0,1.0,0.0,2);break;
     case CONO: cono.draw(modo,1.0,0.0,0.0,0.0,1.0,0.0,2);break;
 	case ESFERA: esfera.draw(modo,1.0,0.0,0.0,0.0,1.0,0.0,2);break;
@@ -182,9 +186,11 @@ void normal_key(unsigned char Tecla1,int x,int y){
 	    case 'A':t_objeto=PIRAMIDE;break;
 	    case 'S':t_objeto=CUBO;break;
 	    case 'D':t_objeto=OBJETO_PLY;break;	
-	    case 'F':t_objeto=ROTACION;break;
+	    case 'F':t_objeto=ROTACION;break; //CILINDRO ROTANDO EN EJE Y
 	    case 'G':t_objeto=CONO;break;
 		case 'H':t_objeto=ESFERA;break;
+		case 'J':t_objeto=CILINDROX;break;
+		case 'K':t_objeto=CILINDROZ;break;
 	}
 	glutPostRedisplay();
 }
@@ -305,7 +311,9 @@ rotacion.parametros(perfil2,100, 'z');
 ///************************************///
 
 /*/ DESCOMENTAR PARA PROBAR
-/*aux.x= 0.6; aux.y=-3.0; aux.z=0.0;
+
+//*
+aux.x= 0.6; aux.y=-3.0; aux.z=0.0;
 perfil2.push_back(aux);
 aux.x= 0.8; aux.y=-2.7; aux.z=0.0;
 perfil2.push_back(aux);
@@ -327,7 +335,7 @@ aux.x=0.8; aux.y=2.6; aux.z=0.0;
 perfil2.push_back(aux);
 
 rotacion.parametros(perfil2,100, 'y');
-*/
+//*/
 
 
 
@@ -355,7 +363,7 @@ glutInitWindowSize(Window_width,Window_high);
 
 // llamada para crear la ventana, indicando el titulo (no se visualiza hasta que se llama
 // al bucle de eventos)
-glutCreateWindow("PRACTICA - 2");
+glutCreateWindow("PRACTICA - 2 Elvira Castillo");
 
 // asignación de la funcion llamada "dibujar" al evento de dibujo
 glutDisplayFunc(draw);
@@ -370,7 +378,11 @@ glutSpecialFunc(special_key);
 initialize();
 
 // creación del objeto ply
-ply.parametros(argv[1]);
+ply.parametros(argv[1]);// el jarron
+//ply1 = new _objeto_ply(argv[2]);
+ply1.parametros(argv[2]);// el cilindro en X
+//ply2 = new _objeto_ply(argv[3]);
+ply2.parametros(argv[3]); // el cilindro en Z
 
 //ply1 = new _objeto_ply(argv[1]);
 

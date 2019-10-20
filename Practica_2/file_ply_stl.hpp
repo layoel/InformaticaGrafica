@@ -17,6 +17,8 @@
 #include <fstream>
 #include <cmath>
 #include <assert.h>
+#include "vertex.h"
+
 
 using namespace std;
 
@@ -37,6 +39,8 @@ namespace _file_ply
 
 void read( const char * nombreArchivo, vector<float> &Vertices,vector<int> &Faces );
    
+bool write(const char nombre[],vector<_vertex3f> vertices, vector<_vertex3i> caras);
+
 } ;
 
 #endif // _READ_PLY

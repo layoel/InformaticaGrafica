@@ -98,8 +98,8 @@ _vertex2 	clone(){_vertex2<Type> Vertex1(*this);return Vertex1;};
 inline 	Type &operator[](int Position){return *(&x+Position);};
 
 void show_values();
-};
 
+};
 
 //*************************************************************************
 //
@@ -176,7 +176,11 @@ Type			compute_angle(const _vertex3<Type> &Vertex1);
 
 inline 	Type &operator[](int Position){return *(&x+Position);};
 void 	show_values();
+
+
+
 };
+
 
 
 //*************************************************************************

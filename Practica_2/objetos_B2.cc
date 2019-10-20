@@ -438,6 +438,8 @@ void _rotacion::parametros(vector<_vertex3f> perfil, int num, char eje) {
       }
 
   }
+//Una vez defines los puntos en el main podemos crear el archivo ply con la funcion write
+ // _file_ply::write("Jarron.ply", vertices, caras);
 }
 
 //************************************************************************

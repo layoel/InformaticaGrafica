@@ -207,5 +207,34 @@ void read( const char * nombreArchivo, vector<float> &vertices, vector<int> &fac
    return ;
 }
 
+  bool write(const char nombre[], vector<_vertex3f> vertices, vector<_vertex3i> caras){
+    
+    ofstream fsalida;
+
+    fsalida.open(nombre);
+
+    fsalida << "ply" << endl;
+    fsalida << "format ascii 1.0" << endl;
+    fsalida << "element vertex"<< " " << vertices.size() << endl;
+    fsalida << "property float32 x" << endl;
+    fsalida << "property float32 y" << endl;
+    fsalida << "property float32 z" << endl;
+    fsalida << "element face" << " " << caras.size() << endl;
+    fsalida << "property list uint8 int32 vertex_indices" << endl;
+    fsalida << "end_header" << endl;
+
+    for ( unsigned long long i= 0; i< vertices.size(); i++)
+      fsalida << vertices[i].x << " " << vertices[i].y << " " << vertices[i].z << endl;
+
+    for (unsigned long long i=0; i< caras.size(); i++)
+      fsalida << "3 " << caras[i]._0 << " " << caras[i]._1 << " " << caras[i]._2 << endl;
+    
+
+
+    fsalida.close();
+    return 0;
+  }
+
+
 
 } // fin namespace _file_ply
