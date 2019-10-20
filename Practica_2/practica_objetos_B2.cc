@@ -273,7 +273,7 @@ perfil2.push_back(aux);
 aux.x=1.0; aux.y=1.0; aux.z=0.0;
 perfil2.push_back(aux);
 
-rotacion.parametros(perfil2,100, 'y');
+rotacion.parametros(perfil2,20, 'y');
 /*/
 
 
@@ -287,7 +287,7 @@ perfil2.push_back(aux);
 aux.x=1.0; aux.y=0.0; aux.z=1.0;
 perfil2.push_back(aux);
 
-rotacion.parametros(perfil2,100, 'x');
+rotacion.parametros(perfil2,20, 'x');
 /*/
 
 
@@ -302,7 +302,7 @@ perfil2.push_back(aux);
 aux.x=1.0; aux.y=0.0; aux.z=1.0;
 perfil2.push_back(aux);
 
-rotacion.parametros(perfil2,100, 'z');
+rotacion.parametros(perfil2,20, 'z');
 //*/
 
 
@@ -334,7 +334,7 @@ perfil2.push_back(aux);
 aux.x=0.8; aux.y=2.6; aux.z=0.0;
 perfil2.push_back(aux);
 
-rotacion.parametros(perfil2,100, 'y');
+rotacion.parametros(perfil2,20, 'y');
 //*/
 
 
