@@ -13,17 +13,12 @@ Para cambiar los modos de visualizacion se usan las siguientes teclas:
 
 Las teclas para cambiar de figura son:
 
-**A** Pirámide
-
-**S** Cubo
-
-**D** Objeto ply
-
-**F** Objeto generado por rotación de puntos
-
-**G** Cono
-
-**H** Esfera
+- **A** Pirámide
+- **S** Cubo
+- **D** Objeto ply
+- **F** Objeto generado por rotación de puntos
+- **G** Cono
+- **H** Esfera
 
 Obtenemos las imágenes siguientes:
 
