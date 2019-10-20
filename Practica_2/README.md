@@ -1,4 +1,4 @@
-# InformaticaGrafica
+# Informática Grafica
 
 ## Práctica 2 MODELOS PLY Y POLIGONALES
 
