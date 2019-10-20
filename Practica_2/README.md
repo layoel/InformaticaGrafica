@@ -6,18 +6,23 @@ Modelado de objetos sólidos poligonales mediante la tecnica de modelado por rev
 
 Para cambiar los modos de visualizacion se usan las siguientes teclas:
  
-**1** Modo Puntos
-**2** Modo Aristas
-**3** Modo Solido (también se ven las aristas)
-**4** Modo Ajedrez (también se ven las aristas)
+- **1** Modo Puntos
+- **2** Modo Aristas
+- **3** Modo Solido (también se ven las aristas)
+- **4** Modo Ajedrez (también se ven las aristas)
 
 Las teclas para cambiar de figura son:
 
 **A** Pirámide
+
 **S** Cubo
+
 **D** Objeto ply
+
 **F** Objeto generado por rotación de puntos
+
 **G** Cono
+
 **H** Esfera
 
 Obtenemos las imágenes siguientes:
