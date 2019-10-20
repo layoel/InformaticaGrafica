@@ -1,4 +1,4 @@
-# InformaticaGrafica
+# Informática Grafica
 Practicas de la asignatura de informática gráfica del grado en ingeniería informática de la UGR
 ## Práctica 0
 Creación de un monigote. Primera aproximación para tener una visión general del diseño.
