@@ -3,6 +3,7 @@
 //**************************************************************************
 
 #include <vector>
+#include <algorithm>
 #include <GL/gl.h>
 #include "vertex.h"
 #include <stdlib.h>
@@ -92,6 +93,7 @@ class _rotacion: public _triangulos3D
 public:
        _rotacion();
 void  parametros(vector<_vertex3f> perfil1, int num1, char eje);
+void comprobar(vector<_vertex3f> perfil);
 
 vector<_vertex3f> perfil; 
 int num;

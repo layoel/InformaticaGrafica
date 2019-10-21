@@ -261,6 +261,11 @@ void _rotacion::parametros(vector<_vertex3f> perfil, int num, char eje) {
     _vertex3i cara_aux;
     int num_aux;
 
+    comprobar(perfil);
+
+    // Compruebo si me meten los puntos de forma ascendente o descendente
+
+
     // tratamiento de los vértice
 
     num_aux=perfil.size();
@@ -441,6 +446,17 @@ void _rotacion::parametros(vector<_vertex3f> perfil, int num, char eje) {
 //Una vez defines los puntos en el main podemos crear el archivo ply con la funcion write
 // _file_ply::write("Jarron.ply", vertices, caras);
 }
+
+void _rotacion::comprobar(vector<_vertex3f> perfil){
+  
+  if (perfil[0].y > perfil[perfil.size()].y){
+    reverse(perfil.begin(), perfil.end());
+
+
+  }
+
+}
+
 
 //************************************************************************
 // objeto cono
