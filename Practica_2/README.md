@@ -40,3 +40,5 @@ El cilindro lo podemos dibujar con **rotación** en el **eje Y** es el que se ej
 ![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2cZ.JPG)
 
 ![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2J.JPG)
+
+Tambien he añadido una funcion en la clase rotación que se llama **comprueba** que permite introducir los puntos de la generatriz en orden ascendente o descendente y siempre pinta la imagen correcta.
