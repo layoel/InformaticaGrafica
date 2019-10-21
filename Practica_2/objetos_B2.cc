@@ -261,7 +261,7 @@ void _rotacion::parametros(vector<_vertex3f> perfil, int num, char eje) {
     _vertex3i cara_aux;
     int num_aux;
 
-    comprobar(perfil);
+    comprobar(perfil, eje);
 
     // Compruebo si me meten los puntos de forma ascendente o descendente
 
@@ -447,13 +447,25 @@ void _rotacion::parametros(vector<_vertex3f> perfil, int num, char eje) {
 // _file_ply::write("Jarron.ply", vertices, caras);
 }
 
-void _rotacion::comprobar(vector<_vertex3f> perfil){
+void _rotacion::comprobar(vector<_vertex3f> perfil, char eje){
+
+  switch (toupper(eje)){
+    case 'Y':
+        if (perfil[0].y > perfil[perfil.size()].y)
+          reverse(perfil.begin(), perfil.end());
+    break;
+    case 'X':
+      if (perfil[0].x > perfil[perfil.size()].x)
+          reverse(perfil.begin(), perfil.end());
+    break;
+    case 'Z':
+      if (perfil[0].z > perfil[perfil.size()].z)
+          reverse(perfil.begin(), perfil.end());
+    break;
   
-  if (perfil[0].y > perfil[perfil.size()].y){
-    reverse(perfil.begin(), perfil.end());
-
-
   }
+  
+  
 
 }
 
