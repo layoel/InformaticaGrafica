@@ -16,9 +16,12 @@ Las teclas para cambiar de figura son:
 - **A** Pirámide
 - **S** Cubo
 - **D** Objeto ply
-- **F** Objeto generado por rotación de puntos
+- **F** Objeto generado por rotación de puntos (el cilindro sobre eje Y)
 - **G** Cono
 - **H** Esfera
+- **J** Cilindro generado sobre eje X
+- **K** Cilindro generado sobre eje Z
+- **Q** Para salir
 
 Obtenemos las imágenes siguientes:
 
@@ -26,7 +29,9 @@ Obtenemos las imágenes siguientes:
 
 ![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2esfera.JPG)
 
-El Objeto por rotación lo podemos cambiar descomentando y comentando el código del fichero **practica_objetos_B2** y obtener un cilindro o un jarron. El cilindro lo podemos dibujar con **rotación** en el **eje X**, **Y** o en el **eje Z**. (todo está indicado en el código)
+Para generar los ply  de los objetos CilindroX CilindroY, CilindroZ y Jarron he usado la funcion write de ply (comentada en el código) y en **practica_objetos_B2** generando el objeto por rotación lo podemos cambiar descomentando y comentando el código del fichero y obtener un cilindro o un jarron. 
+
+El cilindro lo podemos dibujar con **rotación** en el **eje Y** es el que se ejecuta por defecto al pulsar la tecla F, el que rota en **X** esta en la tecla J y el que rota en el **eje Z** esta en la tecla K. (tras descomentar cada uno de los perfiles en practica_objetos_b2 los he escrito en un ply con la funcion write que he implementado en la clase file_ply_stl, he añadido la llamda a función en el método parámetros de la clase rotación) Para la ejecución final uso directamente los ply generados.
 
 ![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2cX.JPG)
 
