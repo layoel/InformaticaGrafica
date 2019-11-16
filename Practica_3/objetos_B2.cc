@@ -1011,7 +1011,7 @@ void _ala::draw(_modo modo, float r1, float g1, float b1, float r2, float g2, fl
   r2 = 0.5;   g2 = 0.0;  b2 = 0.5;
 
   glPushMatrix();
-  glTranslatef(0.0,0.0,0.0);
+  //glTranslatef(0.0,0.0,0.0);
   glScalef(0.5,0.7,0.9);
   alita.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
   glPopMatrix();
@@ -1043,8 +1043,8 @@ void  _pata::draw(_modo modo, float r1, float g1, float b1, float r2, float g2, 
   r1 = 0.0;   g1 = 0.0;  b1 = 1.0;
   r2 = 0.0;   g2 = 0.0;  b2 = 0.0;
   glPushMatrix();
-  glTranslatef(0.0,-1.5,1.0);
-  glScalef(0.2,1.0,0.2);
+  glTranslatef(0.0,-1.5,0.6);
+  glScalef(0.5,1.0,0.5);
   pata.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
   glPopMatrix();
 
@@ -1052,8 +1052,8 @@ void  _pata::draw(_modo modo, float r1, float g1, float b1, float r2, float g2, 
   r1 = 0.5;   g1 = 0.0;  b1 = 0.5;
   r2 = 0.0;   g2 = 0.0;  b2 = 0.0;
   glPushMatrix();
-  glTranslatef(0.0,-2.8,1.0);
-  glScalef(0.5,0.5,0.5);
+  glTranslatef(0.0,-2.8,0.6);
+  glScalef(0.8,0.8,0.8);
   pie.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
   glPopMatrix();
 }
@@ -1071,20 +1071,84 @@ _pollito::_pollito(){
 giro_alaD = 0;
 giro_alaI = 0;
 giro_ala_min= 0;
-giro_ala_max=20;
+giro_ala_max= 40;
 giro_cabeza = 0;
 giro_cabeza_min= -60;
 giro_cabeza_max= 60;
-giro_patas = 0;
-giro_pata_min = -90;
-giro_pata_max =45;
+giro_patas = -30;
+giro_pata_min= -70;
+giro_pata_max = 15;
+animar = false;
 }
 
+/*void _pollito::animarPollito(){
+  bool alamax = false;
+  bool alamin = true;
+  bool headmax = false;
+  bool headmin = true;
+  bool patasmax = false;
+  bool patasmin = true;
 
+
+  if (animar){
+
+      
+      if (!alamax && giro_alaD < giro_ala_max){ 
+        giro_alaD+=1;
+        giro_alaI+=1;
+      }else{
+        alamax = !alamax;
+        alamin = !alamin;
+      }
+      
+      if (!headmax && giro_cabeza < giro_cabeza_max) 
+        giro_cabeza+=1;
+      else{
+        headmax = !headmax ;
+        headmin = !headmin ;
+      }
+
+      if (!patasmax && giro_patas < giro_pata_max) 
+        giro_patas+=1;
+      else{
+        patasmax = !patasmax;
+        patasmin = !patasmin;
+      }
+
+      
+       if (!patasmin && giro_patas > giro_pata_min) 
+        giro_patas-=1;
+      else{
+        patasmax = !patasmax;
+        patasmin = !patasmin;
+      }
+
+      if (!alamin && giro_alaD > giro_ala_min){
+        giro_alaD-=1; 
+        giro_alaI-=1;
+      }else{
+        alamax = !alamax;
+        alamin = !alamin;
+      }
+
+      if (!headmin && giro_cabeza > giro_cabeza_min) 
+        giro_cabeza-=1;
+      else{
+        headmax = !headmax ;
+        headmin = !headmin ;
+      }
+
+  }
+
+}*/
 
 void  _pollito::draw(_modo modo, float r1, float g1, float b1, float r2, float g2, float b2, float grosor){
 //cuerpo
-  
+  glPushMatrix();
+
+    glRotatef(30,1,0,0);
+
+
     glPushMatrix();
     cuerpo.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
     glPopMatrix();
@@ -1103,14 +1167,18 @@ void  _pollito::draw(_modo modo, float r1, float g1, float b1, float r2, float g
 
   //alas
     glPushMatrix();
-    glTranslatef(1.0,-0.5,0.0);
     glRotatef(giro_alaD,1,0,0);
+    glTranslatef(1.5,-0.5,0.0);
+    
+    glRotatef(20,0,0,1);
     alitaD.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
     glPopMatrix();
     
     glPushMatrix();
-    glTranslatef(-1.0,-0.5,0.0);
-    glRotatef(giro_alaI,1,0,1);
+    
+    glRotatef(giro_alaI,1,0,0);
+    glTranslatef(-1.5,-0.5,0.0);
+    glRotatef(-20,0,0,1);
     alitaI.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
     glPopMatrix();
 

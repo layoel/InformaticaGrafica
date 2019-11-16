@@ -263,6 +263,11 @@ void special_key(int Tecla1,int x,int y){
 			if (pollo.giro_patas < pollo.giro_pata_min) 
 				pollo.giro_patas = pollo.giro_pata_min;
 			break;
+		/*case GLUT_KEY_HOME:pollo.animar=true;
+				pollo.animarPollito();
+			break;
+		case GLUT_KEY_END:pollo.animar=false;
+		break;*/
 		}
 	glutPostRedisplay();
 }

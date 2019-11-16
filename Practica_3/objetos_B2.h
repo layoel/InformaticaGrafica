@@ -330,9 +330,12 @@ public:
 	float giro_patas;
 	float giro_pata_max;
 	float giro_pata_min;
+	bool animar;
     
        _pollito();//(_cabeza head, _cuerpo body, _ala wing, _patas legs);
        void  draw(_modo modo, float r1, float g1, float b1, float r2, float g2, float b2, float grosor);
+       //void animarPollito();
+
 protected:
 	_tronco cuerpo;
 	_cabeza cabeza;
