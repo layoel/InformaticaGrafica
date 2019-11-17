@@ -1044,7 +1044,7 @@ void  _pata::draw(_modo modo, float r1, float g1, float b1, float r2, float g2, 
   r2 = 0.0;   g2 = 0.0;  b2 = 0.0;
   glPushMatrix();
   glTranslatef(0.0,-1.5,0.6);
-  glScalef(0.5,1.0,0.5);
+  glScalef(0.3,1.0,0.3);
   pata.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
   glPopMatrix();
 
@@ -1157,7 +1157,7 @@ void _pollito::animarPollito(){
       }
 
 
-      //glutPostRedisplay();
+      glutPostRedisplay();
     }
 }
 

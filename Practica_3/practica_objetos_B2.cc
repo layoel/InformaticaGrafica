@@ -145,6 +145,7 @@ change_observer();
 draw_axis();
 draw_objects();
 glutSwapBuffers();
+pollo.animarPollito();
 }
 
 
@@ -263,16 +264,16 @@ void special_key(int Tecla1,int x,int y){
 			if (pollo.giro_patas < pollo.giro_pata_min) 
 				pollo.giro_patas = pollo.giro_pata_min;
 			break;
-		case GLUT_KEY_HOME:pollo.animar=true;
-				pollo.animarPollito();
+		case GLUT_KEY_HOME:
+			if(pollo.animar)
+				pollo.animar=false;
+			else pollo.animar=true;
 			break;
-		case GLUT_KEY_END:pollo.animar=false;
-		break;
 		case GLUT_KEY_INSERT:pollo.giracuerpo+=1;
 		    if (pollo.giracuerpo > pollo.giramax) 
 				pollo.giracuerpo = pollo.giramax;
 			break;
-		case GLUT_KEY_F1:pollo.giracuerpo-=1;
+		case GLUT_KEY_END:pollo.giracuerpo-=1;
 		    if (pollo.giracuerpo < pollo.giramin) 
 				pollo.giracuerpo = pollo.giramin;
 			break;
