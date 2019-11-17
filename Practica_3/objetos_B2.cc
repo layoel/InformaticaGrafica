@@ -1078,122 +1078,148 @@ giro_cabeza_max= 60;
 giro_patas = -30;
 giro_pata_min= -70;
 giro_pata_max = 15;
+giracuerpo = 20;
+giramax = 25;
+giramin = 0;
 animar = false;
+alamax = false;
+alamin = true;
+headmax = false;
+headmin = true;
+patasmax = false;
+patasmin = true;
+cuerpomax =false;
+cuerpomin =true;
 }
 
-/*void _pollito::animarPollito(){
-  bool alamax = false;
-  bool alamin = true;
-  bool headmax = false;
-  bool headmin = true;
-  bool patasmax = false;
-  bool patasmin = true;
-
+void _pollito::animarPollito(){
 
   if (animar){
-
       
-      if (!alamax && giro_alaD < giro_ala_max){ 
+      if (!alamax){
         giro_alaD+=1;
         giro_alaI+=1;
-      }else{
-        alamax = !alamax;
-        alamin = !alamin;
-      }
-      
-      if (!headmax && giro_cabeza < giro_cabeza_max) 
-        giro_cabeza+=1;
-      else{
-        headmax = !headmax ;
-        headmin = !headmin ;
-      }
-
-      if (!patasmax && giro_patas < giro_pata_max) 
-        giro_patas+=1;
-      else{
-        patasmax = !patasmax;
-        patasmin = !patasmin;
-      }
-
-      
-       if (!patasmin && giro_patas > giro_pata_min) 
-        giro_patas-=1;
-      else{
-        patasmax = !patasmax;
-        patasmin = !patasmin;
-      }
-
-      if (!alamin && giro_alaD > giro_ala_min){
-        giro_alaD-=1; 
+        if(giro_alaD == giro_ala_max){
+          alamax = true;
+          alamin = false;
+        } 
+      }else if(!alamin){
+        giro_alaD-=1;
         giro_alaI-=1;
-      }else{
-        alamax = !alamax;
-        alamin = !alamin;
+        if(giro_alaD == giro_ala_min){
+          alamin = true;
+          alamax = false;
+        }
       }
-
-      if (!headmin && giro_cabeza > giro_cabeza_min) 
+      
+      if (!headmax){
+        giro_cabeza+=1;
+       /* if(giro_cabeza == giro_cabeza_max) {
+          headmax = true ;
+          headmin = false ;
+        }      
+      }else if(!headmin){
         giro_cabeza-=1;
-      else{
-        headmax = !headmax ;
-        headmin = !headmin ;
+
+        if(giro_cabeza == giro_cabeza_min) {
+          headmax = false;
+          headmin = true ;
+        }*/
       }
 
-  }
+      /*if (!patasmax){
+        giro_patas+=1;
+        if (giro_patas == giro_pata_max){
+          patasmax = true;
+          patasmin = false;
+        }
+      }else if(!patasmin){
+        giro_patas-=1;
+        if (giro_patas == giro_pata_min){
+          patasmax = false;
+          patasmin = true;
+        }
+      }*/
 
-}*/
+
+      if (!cuerpomax){
+        giracuerpo+=1;
+        if (giracuerpo == giramax){
+          cuerpomax = true;
+          cuerpomin = false;
+        }
+      }else if(!cuerpomin){
+        giracuerpo-=1;
+        if (giracuerpo == giramin){
+          cuerpomax = false;
+          cuerpomin = true;
+        }
+      }
+
+
+      //glutPostRedisplay();
+    }
+}
+
+
 
 void  _pollito::draw(_modo modo, float r1, float g1, float b1, float r2, float g2, float b2, float grosor){
 //cuerpo
+
   glPushMatrix();
-
+  //para poner el pollito en posiion inicial con el tamaño que quepa en pantalla
     glRotatef(30,1,0,0);
-
-
-    glPushMatrix();
-    cuerpo.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
-    glPopMatrix();
-  //cabeza   
-  r1 = 0.5; 
-  g1 = 0.5;
-  b1 = 0.0;
-
-  r2 = 0.0; 
-  g2 = 1.0;
-  b2 = 1.0; 
-    glPushMatrix();
-    glRotatef(giro_cabeza,0,1,0);
-    cabeza.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
-    glPopMatrix();
-
-  //alas
-    glPushMatrix();
-    glRotatef(giro_alaD,1,0,0);
-    glTranslatef(1.5,-0.5,0.0);
-    
-    glRotatef(20,0,0,1);
-    alitaD.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
-    glPopMatrix();
-    
-    glPushMatrix();
-    
-    glRotatef(giro_alaI,1,0,0);
-    glTranslatef(-1.5,-0.5,0.0);
-    glRotatef(-20,0,0,1);
-    alitaI.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
-    glPopMatrix();
-
-  //patas
-    glPushMatrix();
-      glTranslatef(0.5,-1.0,0.0);
-      glRotatef(giro_patas,1,0,0);
-      piernaD.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
-    glPopMatrix();
+    glScalef(0.4,0.4,0.4);
 
     glPushMatrix();
-      glTranslatef(-0.5,-1.0,0.0);
-      glRotatef(giro_patas,1,0,0);
-      piernaI.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
+      glRotatef(giracuerpo,1,0,0);
+      
+      glPushMatrix();
+      cuerpo.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
+      glPopMatrix();
+      
+      //cabeza   
+      r1 = 0.5; 
+      g1 = 0.5;
+      b1 = 0.0;
+
+      r2 = 0.0; 
+      g2 = 1.0;
+      b2 = 1.0; 
+      glPushMatrix();
+      glRotatef(giro_cabeza,0,1,0);
+      cabeza.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
+      glPopMatrix();
+
+    //alas
+      glPushMatrix();
+      glRotatef(giro_alaD,1,0,0);
+      glTranslatef(1.5,-0.5,0.0);
+      
+      glRotatef(20,0,0,1);
+      alitaD.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
+      glPopMatrix();
+      
+      glPushMatrix();
+      
+      glRotatef(giro_alaI,1,0,0);
+      glTranslatef(-1.5,-0.5,0.0);
+      glRotatef(-20,0,0,1);
+      alitaI.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
+      glPopMatrix();
     glPopMatrix();
+      //patas
+      glPushMatrix();
+        glTranslatef(0.5,-1.0,0.0);
+        glRotatef(giro_patas,1,0,0);
+        piernaD.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
+      glPopMatrix();
+
+      glPushMatrix();
+        glTranslatef(-0.5,-1.0,0.0);
+        glRotatef(giro_patas,1,0,0);
+        piernaI.draw(modo, r1, g1, b1, r2, g2, b2, grosor);
+      glPopMatrix();
 
 
     glPopMatrix();

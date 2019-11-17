@@ -222,9 +222,9 @@ void special_key(int Tecla1,int x,int y){
 		case GLUT_KEY_DOWN:Observer_angle_x++;break;
 		case GLUT_KEY_PAGE_UP:Observer_distance*=1.2;break;
 		case GLUT_KEY_PAGE_DOWN:Observer_distance/=1.2;break;
-		case GLUT_KEY_F1:tanque.giro_tubo+=1;
-                     if (tanque.giro_tubo>tanque.giro_tubo_max) tanque.giro_tubo=tanque.giro_tubo_max;
-                     break;
+		//case GLUT_KEY_F1:tanque.giro_tubo+=1;
+        //             if (tanque.giro_tubo>tanque.giro_tubo_max) tanque.giro_tubo=tanque.giro_tubo_max;
+         //            break;
     	case GLUT_KEY_F2:tanque.giro_tubo-=1;
                      if (tanque.giro_tubo<tanque.giro_tubo_min) tanque.giro_tubo=tanque.giro_tubo_min;
                      break;
@@ -263,11 +263,19 @@ void special_key(int Tecla1,int x,int y){
 			if (pollo.giro_patas < pollo.giro_pata_min) 
 				pollo.giro_patas = pollo.giro_pata_min;
 			break;
-		/*case GLUT_KEY_HOME:pollo.animar=true;
+		case GLUT_KEY_HOME:pollo.animar=true;
 				pollo.animarPollito();
 			break;
 		case GLUT_KEY_END:pollo.animar=false;
-		break;*/
+		break;
+		case GLUT_KEY_INSERT:pollo.giracuerpo+=1;
+		    if (pollo.giracuerpo > pollo.giramax) 
+				pollo.giracuerpo = pollo.giramax;
+			break;
+		case GLUT_KEY_F1:pollo.giracuerpo-=1;
+		    if (pollo.giracuerpo < pollo.giramin) 
+				pollo.giracuerpo = pollo.giramin;
+			break;
 		}
 	glutPostRedisplay();
 }
