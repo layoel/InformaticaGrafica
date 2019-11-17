@@ -26,6 +26,8 @@ Las teclas para cambiar de figura son:
 
 teclas para mover el objeto articulado:
 
+- **F1** gira el cuerpo del pollo sobre las patas como si estuviese comiendo-
+- **INSERT** gira el cuerpo del pollo sobre las patas como si comiera +
 - **F5** giro ala derecha +
 - **F6** giro ala derecha -
 - **F7** giro ala izquierda +
@@ -34,6 +36,8 @@ teclas para mover el objeto articulado:
 - **F10** giro cabeza -
 - **F11** giro patas +
 - **F12** giro patas -
+- **HOME** (tecla inicio) anima el pollito si se deja pulsada, mueve cuerpo arriba y abajo, la cabeza la rota sobre si misma 360 grados, las alas las mueve atras y alante a la vez. hace todos los movimientos a la vez.
+
 
 Junto con las imágenes de la Práctica 2, en esta podemos dibujar un pollito que mueve la cabeza, las patas y las alas de manera individual:
 
