@@ -6,3 +6,7 @@ Creación de un monigote. Primera aproximación para tener una visión general d
 Implementación de la clase cubo. Diferentes formas de dibujar un cubo. Con lineas, relleno, puntos...
 ## Práctica 2
 Modelado de objetos sólidos poligonales mediante la técnica de modelado por revolución alrededor de un eje de rotación.
+## Práctica 3
+Crear un objeto articulado
+## Práctica 4
+Iluminación y materiales

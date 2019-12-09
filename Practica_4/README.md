@@ -47,10 +47,12 @@ teclas para mover el objeto articulado:
 
 Junto con las imágenes que creamos de la Práctica 2 y añadiendo dos objetos nuevos creados por revolución, en esta podemos dibujar un pollito que mueve la cabeza, las patas y las alas de manera individual:
 
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/pollito1.JPG)
+![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/plana.JPG)
 
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/pollito2.JPG)
+![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/gouraud.JPG)
 
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/pollito3.JPG)
+![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/mat1.JPG)
 
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/pollito4.JPG)
+![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/mat2.JPG)
+
+![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/mat3.JPG)
