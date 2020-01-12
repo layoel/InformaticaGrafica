@@ -1,8 +1,8 @@
 # Informática Grafica
 
-## Práctica 2 MODELOS PLY Y POLIGONALES
+## Práctica 5 Interacción y cámara
 
-Modelado de objetos sólidos poligonales mediante la técnica de modelado por revolución alrededor de un eje de rotación:
+En esta práctica usamos los eventos del raton para mover la cámara, creamos una cámara con proyección paralela y hacemos zoom y usamos el raton para seleccionar un objeto y cambiarlo de color, tanto el objeto como alguna de las caras del propio objeto:
 
 Para cambiar los modos de visualizacion se usan las siguientes teclas:
  
@@ -21,22 +21,13 @@ Las teclas para cambiar de figura son:
 - **H** Esfera
 - **J** Cilindro generado sobre eje X
 - **K** Cilindro generado sobre eje Z
+- **W** Objeto articulado
 - **Q** Para salir
 
-Obtenemos las imágenes siguientes:
+Al hacer clic con el **boton  izquierdo del raton** sobre alguna de las figuras del objeto articulado, se *cambia de color* esa figura. Si se hace la selección en el pico del objeto articulado en ese caso se *selecciona la cara* sobre la que se ha hecho clic.
 
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2cono.JPG)
+Para *mover la cámara* alrededor del objeto articulado usamos el **botón derecho del ratón**.
 
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2esfera.JPG)
+Para hacer *zoom* sobre el objeto articulado usamos la **rueda del ratón**.
 
-Para generar los ply  de los objetos CilindroX CilindroY, CilindroZ y Jarron he usado la funcion write de ply (comentada en el código) y en **practica_objetos_B2** generando el objeto por rotación lo podemos cambiar descomentando y comentando el código del fichero y obtener un cilindro o un jarron. 
-
-El cilindro lo podemos dibujar con **rotación** en el **eje Y** es el que se ejecuta por defecto al pulsar la tecla F, el que rota en **X** esta en la tecla J y el que rota en el **eje Z** esta en la tecla K. (tras descomentar cada uno de los perfiles en practica_objetos_b2 los he escrito en un ply con la funcion write que he implementado en la clase file_ply_stl, he añadido la llamda a función en el método parámetros de la clase rotación) Para la ejecución final uso directamente los ply generados.
-
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2cX.JPG)
-
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2cY.JPG)
-
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2cZ.JPG)
-
-![Imagen](https://github.com/layoel/InformaticaGrafica/blob/master/imagenes/p2J.JPG)
+Con la tecla **F1** y **F2** vemos el objeto articulado cambiando de vistas ortogonal y normal
