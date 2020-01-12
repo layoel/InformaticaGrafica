@@ -10,3 +10,5 @@ Modelado de objetos sólidos poligonales mediante la técnica de modelado por re
 Crear un objeto articulado
 ## Práctica 4
 Iluminación y materiales
+## Práctica 5
+Selección por color objetos y caras
